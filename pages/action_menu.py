@@ -8,5 +8,6 @@ class ActionMenu(BasePage):
         self.app.find_element(MainPage.ACTION_MENU)
 
     def check_app_version(self, version: str):
-        actual_version = self.app.find_element().text()
+        actual_version = self.app.find_element(ACTION_MENU).text()
+        assert(actual_version == version)
         

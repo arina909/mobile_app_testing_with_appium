@@ -1,4 +1,4 @@
-from .pages.action_menu import ActionMenu
+from pages.action_menu import ActionMenu
 def test_app_verson(app):
     """Test to check schema version
     Test steps

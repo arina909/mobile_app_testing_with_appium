@@ -1,19 +1,21 @@
 import pytest
 from appium import webdriver
 from pages.elements import OpeningWarning, MainPage
-from selenium.webdriver.support import expected_conditions as ECimport
+from selenium.webdriver.support import expected_conditions as EC
+import os
 import os.path as ph
 
 
 LOCAL_HOST = 'http://localhost:4723/wd/hub'
 CURRENT_DEVICE = 'emulator-5554'
+APP_PATH = ph.join(ph.dirname(__file__), 'EnglishGrammar.apk')
 
 @pytest.fixture(scope='session')
 def app(device_name: str = CURRENT_DEVICE, close_version_warning: bool = True):
     desired_cap = {
       'deviceName': device_name,
       'platformName': 'Android',
-      'app': 'EnglishGrammar.apk',
+      'app': APP_PATH,
       'autoGrantPermissions': True,
       'fullReset': True
     }
