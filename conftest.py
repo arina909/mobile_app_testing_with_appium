@@ -1,26 +1,34 @@
-import pytest
-from appium import webdriver
-from pages.elements import OpeningWarning, MainPage
-from selenium.webdriver.support import expected_conditions as EC
-import os
 import os.path as ph
 
+import pytest
+from appium import webdriver
+from pages.elements import MainPageElement
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
+PADE_LOAD_TIME = 10  # sec
 LOCAL_HOST = 'http://localhost:4723/wd/hub'
 CURRENT_DEVICE = 'emulator-5554'
 APP_PATH = ph.join(ph.dirname(__file__), 'EnglishGrammar.apk')
 
 @pytest.fixture(scope='session')
-def app(device_name: str = CURRENT_DEVICE, close_version_warning: bool = True):
+def driver(device_name: str = CURRENT_DEVICE, close_version_warning: bool = True):
     desired_cap = {
       'deviceName': device_name,
       'platformName': 'Android',
       'app': APP_PATH,
       'autoGrantPermissions': True,
-      'fullReset': True
+      'fullReset': True,
+      'autoAcceptAlerts': True,
+      'automationName': 'UiAutomator2',
+      'appium:uiautomator2ServerReadTimeout': True
     }
 
     driver = webdriver.Remote(command_executor=LOCAL_HOST, desired_capabilities=desired_cap)
     if close_version_warning:
-        driver.find_element(OpeningWarning.OK_BUTTON).click()
-    wait.until(EC.element_to_be_clickable(MainPage.ACTION_MENU))
+        driver.switch_to.alert.accept()
+    WebDriverWait(driver, PADE_LOAD_TIME).until(
+        EC.visibility_of_element_located(MainPageElement.ACTION_MENU))
+
+    yield driver
+    driver.quit()
