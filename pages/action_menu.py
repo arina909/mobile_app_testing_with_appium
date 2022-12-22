@@ -1,20 +1,25 @@
-from pages.bug_report import BugReportMenu
-from appium.webdriver.common.appiumby import AppiumBy
-from time import sleep
+import allure
+from pages.my_list_menu import MyListMenu
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from .base_page import BasePage
-from .elements import ActionMenuElement, BugReportElement
+from .elements import ActionMenuElement, HeaderElement
 
-PADE_LOAD_TIME = 10 #  sec
+PADE_LOAD_TIME = 10  # sec
+
 
 class ActionMenu(BasePage):
     """Class to interact with Actions Menu"""
 
-    def check_app_version(self, version: str):
-        version_elem_text = self.driver.find_element(*ActionMenuElement.VERSION).text
-        actual_version = version_elem_text.replace('Version ', '')
-        assert(actual_version == version)
+    @allure.step('Open action menu')
+    def open_action_menu(self):
+        self.driver.find_element(*HeaderElement.ACTION_MENU).click()
+        return ActionMenu(self.driver)
 
-    def click_report_bug(self):
-        self.driver.find_element(*ActionMenuElement.REPORT_BUG).click()
-        return BugReportMenu(self.driver)
+    @allure.step('Choose My List option')
+    def click_my_list_option(self):
+        WebDriverWait(self.driver, PADE_LOAD_TIME).until(
+            EC.visibility_of_element_located(ActionMenuElement.MY_LIST))
+        self.driver.find_element(*ActionMenuElement.MY_LIST).click()
+        return MyListMenu(self.driver)
