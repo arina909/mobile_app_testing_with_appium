@@ -12,7 +12,7 @@ CURRENT_DEVICE = 'emulator-5554'
 APP_PATH = ph.join(ph.dirname(__file__), 'Shopping.apk')
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def driver(device_name: str = CURRENT_DEVICE, close_version_warning: bool = True):
     desired_cap = {
         'deviceName': device_name,

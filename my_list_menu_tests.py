@@ -1,5 +1,5 @@
 import allure
-from pages.action_menu import ActionMenu
+from pages.header import Header
 
 
 @allure.description(
@@ -11,11 +11,7 @@ from pages.action_menu import ActionMenu
     3. Check  "My List" is empty
     """)
 def test_my_list_empty(driver):
-    action_menu = ActionMenu(driver)
-    action_menu.open_action_menu()
+    header = Header(driver)
+    action_menu = header.open_action_menu()
     my_list_menu = action_menu.click_my_list_option()
     my_list_menu.check_my_list_is_empty()
-
-
-def test_new_list_with_product_creation(driver):
-    pass
