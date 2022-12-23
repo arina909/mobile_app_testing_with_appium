@@ -21,6 +21,9 @@ class ActionMenuElement:
 
 class MyListElement:
     LIST_ITEM = (AppiumBy.ID, 'com.slava.buylist:id/title')
+    INPUT_FIELD = (AppiumBy.ID, 'com.slava.buylist:id/editText1')
+    MICRO_OR_PLUS_BUTTON = (AppiumBy.ID, 'com.slava.buylist:id/button2')
+    VOICE_SEARCH_ALERT_TITLE = (AppiumBy.ACCESSIBILITY_ID, 'Google logo')
 
 
 class ListContentElement:
