@@ -1,0 +1,9 @@
+{
+  "action_menu_tests.py::test_bug_report_cancel": true,
+  "action_menu_tests.py": true,
+  "chat_menu_tests.py::test_check_impossible_to_log_in_with_empty_name": true,
+  "my_list_menu_tests.py": true,
+  "shopping_list_tests.py::test_shopping_lists_absence_by_default": true,
+  "shopping_list_tests.py::test_new_list_with_product_creation": true,
+  "shopping_list_tests.py::test_product_renaming": true
+}
