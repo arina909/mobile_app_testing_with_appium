@@ -22,6 +22,6 @@ Test framework based on appium+python+allure for app created to work with shoppi
 7) Install requirements `pip install -r requirements.txt`
 
 **How to run tests in project:**
-0) Check current device name in conftest.py. If device name is not match with `CURRENT_DEVICE` change variable value to device name from Prerequisites and Setup istructions step 5
-1) Run tests (example: `py.test my_list_menu_tests.py --alluredir=reports`)
-2) Collect allure report (`allure serve reports`) and enjoy results!
+1) Check current device name in conftest.py. If device name is not match with `CURRENT_DEVICE` change variable value to device name from Prerequisites and Setup istructions step 5
+2) Run tests (example: `py.test my_list_menu_tests.py --alluredir=reports`)
+3) Collect allure report (`allure serve reports`) and enjoy results!
