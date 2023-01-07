@@ -1,4 +1,5 @@
 import allure
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from waiting import wait
@@ -13,7 +14,7 @@ class BasePage:
         self.driver = driver
 
     @allure.step('Go back to previous page')
-    def go_to_previous_page(self, hide_keyboard: bool = True):
+    def go_to_previous_page(self, hide_keyboard: bool = False):
         if hide_keyboard:
             self.hide_keyboard()
         self.driver.back()
@@ -28,3 +29,7 @@ class BasePage:
         wait(lambda: self.driver.is_keyboard_shown(),
              timeout_seconds=PADE_LOAD_TIME)
         self.driver.hide_keyboard()
+
+    @allure.step('Perform Long Press')
+    def long_press(self, element):
+        TouchAction(self.driver).long_press(element).perform()

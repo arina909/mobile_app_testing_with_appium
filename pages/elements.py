@@ -29,4 +29,14 @@ class MyListElement:
 class ListContentElement:
     INPUT_FIELD = (AppiumBy.ID, 'com.slava.buylist:id/editText1')
     LIST_ITEM = (AppiumBy.ID, 'com.slava.buylist:id/title')
-    PLUS_BUTTON = (AppiumBy.ID, 'com.slava.buylist:id/button2')
+    PLUS_OR_SAVE_BUTTON = (AppiumBy.ID, 'com.slava.buylist:id/button2')
+    REMOVAL_ALERT_TITLE = (AppiumBy.ID, 'android:id/alertTitle')
+    CONFIRM_REMOVE = (AppiumBy.ID, 'android:id/button1')
+    DECLINE_REMOVE = (AppiumBy.ID, 'android:id/button2')
+
+
+class ListContentOption:
+    COPY = (AppiumBy.XPATH, '//*[contains(@text, "Copy")]')
+    ADD_TO_MY_LIST = (AppiumBy.XPATH, '//*[contains(@text, "Add to my list")]')
+    EDIT = (AppiumBy.XPATH, '//*[contains(@text, "Edit")]')
+    REMOVE = (AppiumBy.XPATH, '//*[contains(@text, "Remove")]')
