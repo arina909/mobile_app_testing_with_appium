@@ -4,7 +4,7 @@ Test framework based on appium+python+allure for app created to work with shoppi
 **Practice task description:**
 1) Choose one of the test apps from storage
 2) Create test plan for chosen app (10-15 main tests scenario)
-3)Create test framework based on:
+3) Create test framework based on:
 - Appium
 - Python
 - Allure
@@ -17,7 +17,7 @@ Test framework based on appium+python+allure for app created to work with shoppi
 2) Appium Server (https://github.com/appium/appium-desktop/releases/tag/v1.22.3-4)
 3) Android Studio (https://developer.android.com/studio/install)
 4) Install android device emulator via device manager or plug real device (in my case Pixel_3a_API_33_x86_64 emulator worked perfectly)
-5) Run android device (if you are working with emulator check plugged devices via cmd `adb devices` copy current device name)
+5) Run android device (if you are working with emulator check plugged devices via cmd `adb devices` and copy current device name)
 6) Run appium server
 7) Install requirements `pip install -r requirements.txt`
 
